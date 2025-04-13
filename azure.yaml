@@ -1,0 +1,6 @@
+name: sailesh-website
+services:
+  - type: web
+    name: sailesh-website
+    runtime: python:3.9
+    startCommand: gunicorn run:app 
