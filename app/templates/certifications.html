@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.NAME }} - Certifications{% endblock %}
+
+{% block content %}
+<div class="certifications-container">
+    <div class="section-header text-center mb-5">
+        <h1 class="display-4 mb-3 fade-in">Certifications</h1>
+        <p class="lead text-muted slide-up">Professional certifications and achievements</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="featured-cert mb-5 slide-up">
+                <div class="card shadow-lg hover-lift">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="cert-icon me-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" alt="Microsoft" class="img-fluid">
+                            </div>
+                            <div>
+                                <h3 class="h4 mb-1">{{ info.CERTIFICATIONS[0].name }}</h3>
+                                <p class="text-muted mb-0">{{ info.CERTIFICATIONS[0].issuer }}</p>
+                            </div>
+                        </div>
+                        <div class="cert-details">
+                            <p class="mb-2"><strong>Earned:</strong> {{ info.CERTIFICATIONS[0].earned_date }}</p>
+                            <p class="mb-2"><strong>Credential ID:</strong> {{ info.CERTIFICATIONS[0].credential_id }}</p>
+                            <p class="mb-0"><strong>Certification Number:</strong> {{ info.CERTIFICATIONS[0].certification_number }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-groups">
+                <!-- IBM Certifications -->
+                <div class="cert-group mb-5 slide-up">
+                    <h3 class="h5 mb-4 text-primary d-flex align-items-center">
+                        <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/c0/87a10033a311e892619b85c6fd62bb/IBM-200x48.png?auto=format%2Ccompress&dpr=2&h=45" 
+                             alt="IBM" 
+                             class="me-2" 
+                             style="height: 24px;">
+                        IBM Certifications
+                    </h3>
+                    <div class="row g-4">
+                        {% for cert in info.CERTIFICATIONS[1:7] %}
+                        <div class="col-md-6">
+                            <div class="card h-100 cert-card hover-lift">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="cert-icon-sm me-3">
+                                            <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/c0/87a10033a311e892619b85c6fd62bb/IBM-200x48.png?auto=format%2Ccompress&dpr=2&h=45" 
+                                                 alt="IBM" 
+                                                 class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <h4 class="h6 mb-1">{{ cert.name }}</h4>
+                                            <p class="text-muted small mb-0">{{ cert.year }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Other Certifications -->
+                <div class="cert-group slide-up">
+                    <h3 class="h5 mb-4 text-primary">
+                        <i class="fas fa-graduation-cap me-2"></i>Additional Certifications
+                    </h3>
+                    <div class="row g-4">
+                        {% for cert in info.CERTIFICATIONS[7:] %}
+                        <div class="col-md-6">
+                            <div class="card h-100 cert-card hover-lift">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="cert-icon-sm me-3">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/1200px-Stanford_Cardinal_logo.svg.png" 
+                                                 alt="Stanford" 
+                                                 class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <h4 class="h6 mb-1">{{ cert.name }}</h4>
+                                            <p class="text-muted small mb-0">{{ cert.issuer }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.certifications-container {
+    padding: 5rem 1rem;
+    background: linear-gradient(to bottom, #f8f9fa, #fff);
+}
+
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.15)!important;
+}
+
+.cert-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cert-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cert-icon-sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cert-icon-sm img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cert-card {
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cert-details {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .certifications-container {
+        padding: 3rem 1rem;
+    }
+}
+</style>
+{% endblock %} 

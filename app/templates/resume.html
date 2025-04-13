@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.NAME }} - Resume{% endblock %}
+
+{% block content %}
+<div class="resume-container">
+    <div class="resume-header">
+        <h1 class="fade-in">My Resume</h1>
+        <a href="{{ url_for('main.download_resume') }}" class="download-btn bounce-in">
+            <i class="fas fa-file-pdf"></i> Download PDF
+        </a>
+    </div>
+    <div class="resume-preview slide-up">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='files/SaileshSivan.png') }}" alt="Resume Preview">
+        </div>
+    </div>
+</div>
+
+<style>
+.resume-container {
+    padding: 2rem;
+    min-height: calc(100vh - 56px);
+    background: #f8f9fa;
+    margin-top: 56px;
+}
+
+.resume-header {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.resume-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.download-btn {
+    background: #0d6efd;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    background: #0b5ed7;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.resume-preview {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.resume-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    padding: 2rem;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+.bounce-in {
+    animation: bounce 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .resume-container {
+        padding: 1rem;
+    }
+
+    .image-container {
+        padding: 1rem;
+    }
+}
+</style>
+{% endblock %} 

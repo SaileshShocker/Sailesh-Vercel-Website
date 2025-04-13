@@ -1,0 +1,631 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.NAME }} - About Me{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="profile-section">
+                <img src="{{ url_for('static', filename='images/SaileshProfilePicture.jpg') }}" alt="{{ info.NAME }}" class="profile-image">
+                <div class="profile-info">
+                    <h2 class="name">{{ info.NAME }}</h2>
+                    <p class="title">{{ info.TITLE }}</p>
+                    <div class="quick-info">
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>{{ info.CURRENT_POSITION }} at {{ info.CURRENT_COMPANY }}</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{{ info.LOCATION }}</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>{{ info.EMAIL }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content fade-in">
+                <h1 class="section-title">About Me</h1>
+                <div class="bio-text">
+                    <div class="bio-header">
+                        <h2 class="bio-title">🚀 AI, Data Science & Analytics Professional</h2>
+                        <p class="bio-intro">👋 Hey there! I'm a curious and driven AI, Data Science, and Analytics professional with over 2 years of experience transforming raw data into intelligent solutions that drive business growth.</p>
+                    </div>
+                    
+                    <div class="bio-section">
+                        <p class="bio-paragraph">
+                            I work across a wide range of technologies — from 
+                            <span class="tech-highlight">📊 Data Analytics</span> and 
+                            <span class="tech-highlight">🤖 Machine Learning</span> to 
+                            <span class="tech-highlight">💬 Natural Language Processing (NLP)</span>, 
+                            <span class="tech-highlight">📚 Large Language Models (LLMs)</span>, 
+                            <span class="tech-highlight">🎨 Generative AI</span>, and 
+                            <span class="tech-highlight">��️ Computer Vision</span>. 
+                            I've built and deployed several detection models and love solving complex problems with AI.
+                        </p>
+                        
+                        <p class="bio-paragraph">
+                            I specialize in end-to-end development, from analyzing and cleaning data to deploying full-stack AI applications in the cloud.
+                        </p>
+                    </div>
+
+                    <div class="tools-section">
+                        <h3 class="tools-title">⚙️ Tools & Technologies I Use:</h3>
+                        <div class="tools-grid">
+                            <div class="tool-item">
+                                <span class="tool-emoji">🐍</span>
+                                <span class="tool-text">Python for ML, automation, and scripting</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">💾</span>
+                                <span class="tool-text">SQL & MongoDB for working with structured and unstructured data</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">☁️</span>
+                                <span class="tool-text">AWS, Azure, and Google Cloud Platform for scalable AI solutions</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">💻</span>
+                                <span class="tool-text">Flask & Streamlit for building interactive apps</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">📊</span>
+                                <span class="tool-text">Power BI for business intelligence and data visualization</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">⚙️</span>
+                                <span class="tool-text">MS Power Automate for automating workflows</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bio-footer">
+                        <p class="passion-statement">
+                            ✨ I'm passionate about building smart, scalable systems and discovering innovative ways to unlock value from data and AI.
+                        </p>
+                        <p class="personal-note">
+                            When I'm not coding or building, I'm usually sipping coffee ☕ while diving into the latest in AI, NLP, and Generative AI.
+                        </p>
+                        <p class="connect-invite">
+                            Let's connect and build something amazing! 💡
+                        </p>
+                    </div>
+                </div>
+                <div class="current-role">
+                    <h3>What I'm Doing Now</h3>
+                    <p>{{ info.CURRENT_ROLE_DESCRIPTION }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Technologies Section -->
+    <section class="ai-tech-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Working with Leading AI Technologies</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="ai-card">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Development</h3>
+                        <p>Actively developing AI tools and solutions, integrating cutting-edge technologies to create innovative applications and streamline workflows.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ai-card">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Integration</h3>
+                        <p>Expertise in integrating leading AI platforms including OpenAI, Claude, and various AI tools into daily workflows and development processes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ai-card">
+                        <div class="ai-card-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>AI Innovation</h3>
+                        <p>Pioneering the use of AI in everyday tasks, leveraging advanced AI capabilities to enhance productivity and create intelligent solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">My Journey</h2>
+            <div class="timeline">
+                {% for edu in info.EDUCATION %}
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>{{ edu.degree }}</h3>
+                            <span class="timeline-date">{{ edu.year }}</span>
+                        </div>
+                        <h4 class="timeline-subtitle">{{ edu.institution }}</h4>
+                        <p class="timeline-description">{{ edu.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Interests -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Skills & Expertise</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="skill-card">
+                        <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+                        <div class="skill-tags">
+                            {% for skill in info.TECHNICAL_SKILLS %}
+                            <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card">
+                        <h3><i class="fas fa-brain"></i> Soft Skills</h3>
+                        <div class="skill-tags">
+                            {% for skill in info.SOFT_SKILLS %}
+                            <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.about-container {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    padding-bottom: 4rem;
+    margin-top: -4rem;
+}
+
+.about-hero {
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
+    color: white;
+    margin-top: 0;
+    margin-bottom: 4rem;
+}
+
+.profile-section {
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 2rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-info .name {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.profile-info .title {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.quick-info {
+    text-align: left;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.info-item i {
+    width: 25px;
+    margin-right: 12px;
+    color: #00ffcc;
+    font-size: 1.1rem;
+}
+
+.about-content {
+    margin-top: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.bio-header {
+    margin-bottom: 2rem;
+}
+
+.bio-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bio-intro {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bio-section {
+    margin-bottom: 2rem;
+}
+
+.tech-highlight {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    margin: 0 2px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.tech-highlight:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tools-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.tools-title {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+}
+
+.tool-emoji {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.tool-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bio-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.passion-statement {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+}
+
+.personal-note {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.connect-invite {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.current-role {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #007bff, #00ffcc);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    width: 50%;
+    padding-right: 2rem;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    right: auto;
+    left: -10px;
+}
+
+.timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.timeline-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.timeline-subtitle {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+.skills-section {
+    padding: 4rem 0;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.skill-card h3 i {
+    margin-right: 10px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+@media (max-width: 768px) {
+    .profile-section {
+        padding-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-info {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 2rem;
+    }
+
+    .timeline-dot {
+        left: -10px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -10px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bio-title {
+        font-size: 1.8rem;
+    }
+
+    .profile-info {
+        margin-top: -0.5rem;
+        padding: 1.5rem;
+    }
+
+    .profile-info .name {
+        font-size: 1.8rem;
+    }
+}
+
+.ai-tech-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
+    color: white;
+    margin-bottom: 4rem;
+}
+
+.ai-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.ai-card:hover {
+    transform: translateY(-10px);
+}
+
+.ai-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ai-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.ai-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+</style>
+{% endblock %} 

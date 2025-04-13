@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}{{ info.NAME }} - Projects{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Projects Portfolio</h1>
+    
+    <div class="row g-4">
+        {% for project in info.PROJECTS %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card project-card h-100">
+                <div class="card-body">
+                    <div class="project-date mb-2 text-muted">
+                        <i class="far fa-calendar-alt me-2"></i>{{ project.date }}
+                    </div>
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    
+                    <div class="tools-section mb-3">
+                        <h6 class="text-muted mb-2">Technologies Used:</h6>
+                        <div class="d-flex flex-wrap gap-2">
+                            {% for tool in project.tools %}
+                            <span class="badge bg-primary">{{ tool }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="impact-section mb-3">
+                        <h6 class="text-muted mb-2">Impact:</h6>
+                        <p class="card-text text-muted">{{ project.impact }}</p>
+                    </div>
+                    
+                    <a href="{{ project.link }}" class="btn btn-outline-primary" target="_blank">
+                        <i class="fas fa-external-link-alt me-2"></i>View Project
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.project-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-date {
+    font-size: 0.9rem;
+}
+
+.card-title {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.tools-section .badge {
+    font-weight: 500;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+}
+
+.impact-section {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.impact-section p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.btn-outline-primary {
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for cards */
+.project-card {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for cards */
+{% for i in range(info.PROJECTS|length) %}
+.project-card:nth-child({{ i + 1 }}) {
+    animation-delay: {{ i * 0.1 }}s;
+}
+{% endfor %}
+</style>
+{% endblock %} 
