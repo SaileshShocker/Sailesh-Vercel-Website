@@ -22,6 +22,14 @@
                             <span>{{ info.LOCATION }}</span>
                         </div>
                         <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <span>Available in: 
+                                {% for city in info.AVAILABLE_CITIES %}
+                                <span class="city-badge">{{ city }}</span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </span>
+                        </div>
+                        <div class="info-item">
                             <i class="fas fa-envelope"></i>
                             <span>{{ info.EMAIL }}</span>
                         </div>
@@ -34,28 +42,52 @@
                 <div class="bio-text">
                     <div class="bio-header">
                         <h2 class="bio-title">🚀 AI, Data Science & Analytics Professional</h2>
-                        <p class="bio-intro">👋 Hey there! I'm a curious and driven AI, Data Science, and Analytics professional with over 2 years of experience transforming raw data into intelligent solutions that drive business growth.</p>
+                        <p class="bio-intro">👋 Hey there! I'm a curious and driven AI, Data Science, and Analytics professional with over 3 years of experience transforming raw data into intelligent solutions that drive business growth.</p>
                     </div>
                     
                     <div class="bio-section">
                         <p class="bio-paragraph">
                             I work across a wide range of technologies — from 
-                            <span class="tech-highlight">📊 Data Analytics</span> and 
-                            <span class="tech-highlight">🤖 Machine Learning</span> to 
-                            <span class="tech-highlight">💬 Natural Language Processing (NLP)</span>, 
-                            <span class="tech-highlight">📚 Large Language Models (LLMs)</span>, 
-                            <span class="tech-highlight">🎨 Generative AI</span>, and 
-                            <span class="tech-highlight">��️ Computer Vision</span>. 
+                            <span class="tech-tag">📊 Data Analytics</span> and 
+                            <span class="tech-tag">🤖 Machine Learning</span> to 
+                            <span class="tech-tag">💬 Natural Language Processing (NLP)</span>, 
+                            <span class="tech-tag">📚 Large Language Models (LLMs)</span>, 
+                            <span class="tech-tag">🎨 Generative AI</span>, and 
+                            <span class="tech-tag">👁️ Computer Vision</span>. 
                             I've built and deployed several detection models and love solving complex problems with AI.
                         </p>
                         
                         <p class="bio-paragraph">
                             I specialize in end-to-end development, from analyzing and cleaning data to deploying full-stack AI applications in the cloud.
                         </p>
+
+                        <div class="expertise-highlight">
+                            <h3 class="expertise-title">🔧 End-to-End Automation Expert</h3>
+                            <p class="expertise-text">
+                                I am an expert in end-to-end automation of any tasks. I have automated many use cases and saved hours of manual work time in my organization. I have used GenAI to automate processes for many departments including:
+                            </p>
+                            <div class="departments-grid">
+                                <div class="department-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Sales</span>
+                                </div>
+                                <div class="department-item">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span>Marketing</span>
+                                </div>
+                                <div class="department-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Partnership</span>
+                                </div>
+                            </div>
+                            <p class="expertise-text">
+                                I also work with AI agents and build end-to-end automation solutions using GenAI and Flask.
+                            </p>
+                        </div>
                     </div>
 
                     <div class="tools-section">
-                        <h3 class="tools-title">⚙️ Tools & Technologies I Use:</h3>
+                        <h3 class="tools-title">⚙️ Core Technologies & Tools:</h3>
                         <div class="tools-grid">
                             <div class="tool-item">
                                 <span class="tool-emoji">🐍</span>
@@ -63,23 +95,23 @@
                             </div>
                             <div class="tool-item">
                                 <span class="tool-emoji">💾</span>
-                                <span class="tool-text">SQL & MongoDB for working with structured and unstructured data</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-emoji">☁️</span>
-                                <span class="tool-text">AWS, Azure, and Google Cloud Platform for scalable AI solutions</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-emoji">💻</span>
-                                <span class="tool-text">Flask & Streamlit for building interactive apps</span>
+                                <span class="tool-text">SQL & MongoDB for data management</span>
                             </div>
                             <div class="tool-item">
                                 <span class="tool-emoji">📊</span>
-                                <span class="tool-text">Power BI for business intelligence and data visualization</span>
+                                <span class="tool-text">Power BI & Excel for business intelligence</span>
                             </div>
                             <div class="tool-item">
-                                <span class="tool-emoji">⚙️</span>
-                                <span class="tool-text">MS Power Automate for automating workflows</span>
+                                <span class="tool-emoji">🤖</span>
+                                <span class="tool-text">GenAI & AI Agents for automation</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">💻</span>
+                                <span class="tool-text">Flask for web applications</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-emoji">☁️</span>
+                                <span class="tool-text">Cloud platforms for scalable solutions</span>
                             </div>
                         </div>
                     </div>
@@ -107,7 +139,7 @@
     <!-- AI Technologies Section -->
     <section class="ai-tech-section">
         <div class="container">
-            <h2 class="section-title text-center mb-5">Working with Leading AI Technologies</h2>
+            <h2 class="section-title text-center mb-5">Impact & Technologies</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="ai-card">
@@ -115,6 +147,8 @@
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3>AI Development</h3>
+                        <div class="impact-number">15+</div>
+                        <div class="impact-label">AI Models Developed</div>
                         <p>Actively developing AI tools and solutions, integrating cutting-edge technologies to create innovative applications and streamline workflows.</p>
                     </div>
                 </div>
@@ -124,6 +158,8 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <h3>AI Integration</h3>
+                        <div class="impact-number">30+</div>
+                        <div class="impact-label">Projects Delivered</div>
                         <p>Expertise in integrating leading AI platforms including OpenAI, Claude, and various AI tools into daily workflows and development processes.</p>
                     </div>
                 </div>
@@ -133,6 +169,8 @@
                             <i class="fas fa-microchip"></i>
                         </div>
                         <h3>AI Innovation</h3>
+                        <div class="impact-number">50+</div>
+                        <div class="impact-label">Business Processes Automated</div>
                         <p>Pioneering the use of AI in everyday tasks, leveraging advanced AI capabilities to enhance productivity and create intelligent solutions.</p>
                     </div>
                 </div>
@@ -203,39 +241,48 @@
 }
 
 .about-hero {
-    padding: 0;
+    padding: 2rem 0;
     background: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
     color: white;
     margin-top: 0;
     margin-bottom: 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .profile-section {
     text-align: center;
     padding-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .profile-image {
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 2rem;
+    object-position: center 30%;
+    margin: 0 auto 1.5rem;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
     display: block;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .profile-image:hover {
     transform: scale(1.05);
+    border-color: rgba(0, 255, 204, 0.3);
 }
 
 .profile-info {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
+    border-radius: 15px;
+    padding: 1.5rem;
     backdrop-filter: blur(10px);
     position: relative;
     z-index: 1;
@@ -245,41 +292,74 @@
 }
 
 .profile-info .name {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     color: white;
 }
 
 .profile-info .title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
 }
 
 .quick-info {
     text-align: left;
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 350px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1.2rem;
     color: rgba(255, 255, 255, 0.9);
+    padding: 0.6rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 0;
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(3px);
 }
 
 .info-item i {
-    width: 25px;
+    width: 20px;
     margin-right: 12px;
     color: #00ffcc;
-    font-size: 1.1rem;
+    font-size: 1rem;
+}
+
+.info-item span {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.info-item .city-badge {
+    display: inline-block;
+    background: rgba(0, 255, 204, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    color: #00ffcc;
+    margin: 0 2px;
+}
+
+.info-item .city-badge:hover {
+    background: rgba(0, 255, 204, 0.3);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
 }
 
 .about-content {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .section-title {
@@ -300,34 +380,91 @@
 }
 
 .bio-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
     background: linear-gradient(120deg, #007bff, #00ffcc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .bio-intro {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid #00ffcc;
+    margin-bottom: 2rem;
 }
 
 .bio-section {
     margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tech-highlight {
+.expertise-highlight {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.15), rgba(0, 255, 204, 0.15));
+    border: 2px solid rgba(0, 255, 204, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.expertise-title {
+    color: #00ffcc;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.expertise-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.department-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
     background: rgba(255, 255, 255, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    margin: 0 2px;
-    display: inline-block;
-    transition: transform 0.2s ease;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.tech-highlight:hover {
-    transform: translateY(-2px);
+.department-item:hover {
     background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 204, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+}
+
+.department-item i {
+    color: #00ffcc;
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.department-item span {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
 }
 
 .tools-section {
@@ -335,39 +472,87 @@
     border-radius: 15px;
     padding: 2rem;
     margin: 2rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tools-title {
     margin-bottom: 1.5rem;
     color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
 }
 
 .tool-item {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 1.2rem;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tool-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 255, 204, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1);
 }
 
 .tool-emoji {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-right: 1rem;
+    min-width: 2rem;
+    text-align: center;
 }
 
 .tool-text {
     color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.bio-paragraph {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.tech-tag {
+    position: relative;
+    color: #00ffcc;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.2rem 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-tag::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #00ffcc);
+    transition: width 0.3s ease;
+}
+
+.tech-tag:hover::after {
+    width: 100%;
+}
+
+.tech-tag:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
 }
 
 .bio-footer {
@@ -377,27 +562,49 @@
 }
 
 .passion-statement {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 .personal-note {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
 }
 
 .connect-invite {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #fff;
     text-align: center;
     margin-top: 2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 255, 204, 0.1));
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 204, 0.2);
 }
 
 .current-role {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+}
+
+.current-role h3 {
+    color: #00ffcc;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.current-role p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
 .timeline {
@@ -609,9 +816,25 @@
     transform: translateY(-10px);
 }
 
+.impact-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(120deg, #007bff, #00ffcc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0 0.5rem;
+}
+
+.impact-label {
+    color: #00ffcc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
 .ai-card-icon {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     background: linear-gradient(120deg, #007bff, #00ffcc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

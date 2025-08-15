@@ -8,7 +8,7 @@ from flask_mail import Message
 @bp.route('/')
 @bp.route('/home')
 def index():
-    return render_template('home.html', info=PersonalInfo)
+    return render_template('index.html', info=PersonalInfo)
 
 @bp.route('/about')
 def about():
@@ -28,21 +28,25 @@ def resume():
 
 @bp.route('/resume/view')
 def view_resume():
-    app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    resume_path = os.path.join(app_dir, PersonalInfo.RESUME_PATH)
     try:
-        return send_file(resume_path)
+        return send_file(
+            'static/files/SaileshResume.pdf',
+            mimetype='application/pdf'
+        )
     except Exception as e:
-        return f"Error: Could not find resume file at {resume_path}", 404
+        return f"Error: Could not find resume file", 404
 
 @bp.route('/resume/download')
 def download_resume():
-    app_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    resume_path = os.path.join(app_dir, PersonalInfo.RESUME_PATH)
     try:
-        return send_file(resume_path, as_attachment=True)
+        return send_file(
+            'static/files/SaileshResume.pdf',
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name='SaileshResume.pdf'
+        )
     except Exception as e:
-        return f"Error: Could not find resume file at {resume_path}", 404
+        return f"Error: Could not find resume file", 404
 
 @bp.route('/contact')
 def contact():
@@ -76,4 +80,8 @@ def send_message():
 
 @bp.route('/certifications')
 def certifications():
-    return render_template('certifications.html', info=PersonalInfo) 
+    return render_template('certifications.html', info=PersonalInfo)
+
+@bp.route('/experience')
+def experience():
+    return render_template('experience.html', info=PersonalInfo) 

@@ -4,7 +4,15 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-5">Projects Portfolio</h1>
+    <div class="text-center mb-5">
+        <h1 class="mb-4">Projects Portfolio</h1>
+        <div class="github-link-section">
+            <a href="https://github.com/SaileshShocker?tab=repositories" class="btn btn-primary btn-lg github-btn" target="_blank">
+                <i class="fab fa-github me-2"></i>View All Projects on GitHub
+            </a>
+            <p class="text-muted mt-2">Explore my complete portfolio of 45+ repositories</p>
+        </div>
+    </div>
     
     <div class="row g-4">
         {% for project in info.PROJECTS %}
@@ -30,10 +38,6 @@
                         <h6 class="text-muted mb-2">Impact:</h6>
                         <p class="card-text text-muted">{{ project.impact }}</p>
                     </div>
-                    
-                    <a href="{{ project.link }}" class="btn btn-outline-primary" target="_blank">
-                        <i class="fas fa-external-link-alt me-2"></i>View Project
-                    </a>
                 </div>
             </div>
         </div>
@@ -44,6 +48,30 @@
 
 {% block extra_css %}
 <style>
+.github-link-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    border: 1px solid #dee2e6;
+}
+
+.github-btn {
+    background: linear-gradient(135deg, #24292e, #586069);
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+}
+
+.github-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(36, 41, 46, 0.4);
+    background: linear-gradient(135deg, #1a1e22, #4a4f55);
+}
+
 .project-card {
     border: none;
     border-radius: 12px;
@@ -85,16 +113,6 @@
     font-size: 0.9rem;
 }
 
-.btn-outline-primary {
-    border-radius: 20px;
-    padding: 0.5rem 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-primary:hover {
-    transform: translateY(-2px);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .project-card {
@@ -103,6 +121,11 @@
     
     .card-title {
         font-size: 1.1rem;
+    }
+    
+    .github-link-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
     }
 }
 
