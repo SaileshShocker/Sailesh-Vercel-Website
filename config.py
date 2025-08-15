@@ -20,10 +20,13 @@ class Config:
     # Ensure required config is set
     @staticmethod
     def init_app(app):
-        required_configs = ['MAIL_USERNAME', 'MAIL_PASSWORD']
-        missing_configs = [config for config in required_configs if not app.config.get(config)]
-        if missing_configs:
-            raise ValueError(f"Missing required configurations: {', '.join(missing_configs)}")
+        # Only check for email configs if we're in production and email is needed
+        if os.environ.get('FLASK_ENV') == 'production':
+            required_configs = ['MAIL_USERNAME', 'MAIL_PASSWORD']
+            missing_configs = [config for config in required_configs if not app.config.get(config)]
+            if missing_configs:
+                print(f"Warning: Missing email configurations: {', '.join(missing_configs)}")
+                print("Email functionality will be disabled.")
 
 class PersonalInfo:
     # Basic Information

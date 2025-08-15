@@ -57,6 +57,13 @@ def send_message():
     try:
         data = request.get_json()
         
+        # Check if email is configured
+        if not mail.app:
+            return jsonify({
+                "status": "error", 
+                "message": "Email functionality is not configured. Please contact me directly at " + PersonalInfo.EMAIL
+            }), 503
+        
         # Create email message
         msg = Message(
             subject=f"Portfolio Contact: {data['subject']}",
